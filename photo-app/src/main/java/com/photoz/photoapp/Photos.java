@@ -1,5 +1,9 @@
 package com.photoz.photoapp;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.validation.constraints.NotEmpty;
+
 public class Photos {
 
     public Photos() {
@@ -11,6 +15,17 @@ public class Photos {
     }
 
     private String id;
+
+    @JsonIgnore
+    private byte [] data;
+
+    public void setData(byte[] data) {
+        this.data = data;
+    }
+
+    public byte[] getData() {
+        return data;
+    }
 
     public String getId() {
         return id;
@@ -28,7 +43,7 @@ public class Photos {
         this.filename = filename;
     }
 
+    @NotEmpty
     private String filename;
-
 
 }
